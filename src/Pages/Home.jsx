@@ -1,5 +1,6 @@
 import Announcement from "../Components/Announcement";
 import Navbar from "../Components/Navbar";
+import Slider from "../Components/Slider";
 
 function Home() {
   return (
@@ -7,6 +8,7 @@ function Home() {
       <div>
         <Announcement />
         <Navbar />
+        <Slider />
       </div>
     </>
   );
