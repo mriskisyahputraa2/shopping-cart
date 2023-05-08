@@ -1,12 +1,9 @@
-import Home from "./Pages/Home";
 import "./index.css";
 
 function App() {
   return (
     <>
-      <div>
-        <Home />
-      </div>
+      <div className="overflow-hidden">React App</div>
     </>
   );
 }

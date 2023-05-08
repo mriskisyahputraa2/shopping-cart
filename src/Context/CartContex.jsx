@@ -1,7 +1,7 @@
 import React from "react";
 
-const Home = () => {
+const CartContex = () => {
   return <div></div>;
 };
 
-export default Home;
+export default CartContex;
