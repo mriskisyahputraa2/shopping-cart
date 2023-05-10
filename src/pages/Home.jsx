@@ -6,13 +6,12 @@ const Home = () => {
   // get product from product contex
   const { products } = useContext(ProductContext);
 
-  // get only men`s & women`s clothing category
+  // hanya ngambil data nya sesuai dengan category di API-nya
   const filterProducts = products.filter((item) => {
     return (
       item.category === "men's clothing" || item.category === "women's clothing"
     );
   });
-  console.log(filterProducts);
   return (
     <>
       <section className="py-16">

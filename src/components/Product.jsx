@@ -36,7 +36,17 @@ function Product({ product }) {
             </Link>
           </div>
         </div>
-        <div>1</div>
+
+        {/* category & title & price */}
+        <div>
+          <div className="text-sm capitalize text-gray-500 mb-1">
+            {category}
+          </div>
+          <Link to={`/product-detail/${id}`} className="font-semibold mb-1">
+            {title}
+          </Link>
+          <div className="font-semibold">$ {price}</div>
+        </div>
       </div>
     </>
   );
