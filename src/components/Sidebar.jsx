@@ -3,9 +3,11 @@ import { IoMdArrowForward } from "react-icons/io";
 import { FiTrash2 } from "react-icons/fi";
 import { useContext } from "react";
 import { SidebarContext } from "../context/SidebarContext";
+import { CartContext } from "../context/CartContex";
 
 function Sidebar() {
   const { isOpen, handleClose } = useContext(SidebarContext);
+  console.log(useContext(CartContext));
 
   return (
     <>

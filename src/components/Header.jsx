@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <>
-      <header className="bg-pink-200 ">
+      <header className="bg-pink-200">
         <div>Header</div>
       </header>
       <div
