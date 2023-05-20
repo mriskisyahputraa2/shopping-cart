@@ -7,12 +7,13 @@ function Header() {
 
   return (
     <>
-      <div>
-        <div
-          className="cursor-pointer flex relative"
-          onClick={() => setIsOpen(!isOpen)}>
-          <BsBag />
-        </div>
+      <header className="bg-pink-200 ">
+        <div>Header</div>
+      </header>
+      <div
+        className="cursor-pointer flex relative"
+        onClick={() => setIsOpen(!isOpen)}>
+        <BsBag />
       </div>
     </>
   );
