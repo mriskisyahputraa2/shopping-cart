@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import { IoMdAdd, IoMdClose, IoMdRemove } from "react-icons/io";
+import { CartContext } from "../context/CartContex";
+import { useContext } from "react";
 
 function CartItem({ item }) {
   // destructure item
   const { id, title, image, category, amount, price } = item;
+  const { removeFromCart } = useContext(CartContext);
 
   return (
     <>
-      <div className="flex">
+      <div className="flex gap-x-4 py-2 lg:px-6 border-b border-gray-200 w-full font-light text-gray-500 ">
         <div className="w-full min-h-[150px] flex items-center gap-x-4">
           {/* image */}
           <Link to={`/product-detail/${id}`}>
@@ -24,7 +27,9 @@ function CartItem({ item }) {
               </Link>
 
               {/* remove icons */}
-              <div className="text-xl cursor-pointer">
+              <div
+                onClick={() => removeFromCart(id)}
+                className="text-xl cursor-pointer">
                 <IoMdClose className="text-gray-500 hover:text-red-500 transition" />
               </div>
             </div>
@@ -46,10 +51,12 @@ function CartItem({ item }) {
                 </div>
               </div>
               {/* item price */}
-              <div>{price}</div>
+              <div className="flex flex-1 items-center justify-around">
+                {price}
+              </div>
               {/* final price */}
               {/* make the price at 2 decimals */}
-              <div className="flex-1 flex justify-end items-center text-primary font-medium">{`$ ${parseFloat(
+              <div className="flex-1 flex justify-end items-center text-primary font-bold">{`$ ${parseFloat(
                 price * amount
               ).toFixed(2)}`}</div>
             </div>
