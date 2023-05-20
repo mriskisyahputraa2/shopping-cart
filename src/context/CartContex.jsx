@@ -10,21 +10,30 @@ const CartProvider = ({ children }) => {
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 };
 
-    // check if the item is already in the cart
+    // mencari item sesuai dengan id nya
     const cartItem = cart.find((item) => {
       return item.id === id;
     });
 
-    // if cart item is already in the cart
+    // jika cart sudah ada di keranjang
     if (cartItem) {
+      // membuat salinan data (...) dan di ubah menjadi array (map) disimpan dalam newCart
       const newCart = [...cart].map((item) => {
+        // jika id item sesuai dengan id nya
         if (item.id === id) {
+          // maka properti amout akan di tambah 1
           return { ...item, amount: cartItem.amount + 1 };
+
+          // jika tidak maka item tetap sama
         } else {
           return item;
         }
       });
+
+      // akan mengubah state setCart dengan nilai yang ada pada newCart
       setCart(newCart);
+
+      // jika tidak maka cart (keranjang) tidak tejadi apa-apa
     } else {
       setCart([...cart, newItem]);
     }
