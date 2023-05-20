@@ -4,10 +4,12 @@ import { FiTrash2 } from "react-icons/fi";
 import { useContext } from "react";
 import { SidebarContext } from "../context/SidebarContext";
 import { CartContext } from "../context/CartContex";
+import CartItem from "../components/CartItem";
 
 function Sidebar() {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  console.log(useContext(CartContext));
+
+  const { cart } = useContext(CartContext);
 
   return (
     <>
@@ -24,6 +26,11 @@ function Sidebar() {
             className="cursor-pointer w-8 h-8 flex justify-center items-center">
             <IoMdArrowForward />
           </div>
+        </div>
+        <div>
+          {cart.map((item) => {
+            return <CartItem item={item} key={item.id} />;
+          })}
         </div>
       </div>
     </>

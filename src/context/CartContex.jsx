@@ -37,12 +37,11 @@ const CartProvider = ({ children }) => {
     } else {
       setCart([...cart, newItem]);
     }
-    console.log(cart);
 
     console.log(`${product.title} item ${id} added to cart`);
   };
   return (
-    <CartContext.Provider value={{ addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart }}>
       {children}
     </CartContext.Provider>
   );
