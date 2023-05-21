@@ -6,7 +6,8 @@ import { useContext } from "react";
 function CartItem({ item }) {
   // destructure item
   const { id, title, image, category, amount, price } = item;
-  const { removeFromCart } = useContext(CartContext);
+  const { removeFromCart, increaseAmount, decreaseAmount } =
+    useContext(CartContext);
 
   return (
     <>
@@ -38,7 +39,9 @@ function CartItem({ item }) {
             <div className="flex gap-x-2 h-[36px] text-sm">
               <div className="flex flex-1 max-w-[100px] items-center h-full border text-primary font-medium">
                 {/* minus icons */}
-                <div className="flex-1 flex justify-center items-center cursor-pointer">
+                <div
+                  onClick={() => decreaseAmount(id)}
+                  className="flex-1 flex justify-center items-center cursor-pointer">
                   <IoMdRemove />
                 </div>
                 {/* amout */}
@@ -46,7 +49,9 @@ function CartItem({ item }) {
                   {amount}
                 </div>
                 {/* plus icons */}
-                <div className="flex-1 h-full flex justify-center items-center cursor-pointer">
+                <div
+                  onClick={() => increaseAmount(id)}
+                  className="flex-1 h-full flex justify-center items-center cursor-pointer">
                   <IoMdAdd />
                 </div>
               </div>
