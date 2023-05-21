@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 function CartItem({ item }) {
   // destructure item
-  const { id, title, image, category, amount, price } = item;
+  const { id, title, image, amount, price } = item;
   const { removeFromCart, increaseAmount, decreaseAmount } =
     useContext(CartContext);
 
@@ -41,7 +41,7 @@ function CartItem({ item }) {
                 {/* minus icons */}
                 <div
                   onClick={() => decreaseAmount(id)}
-                  className="flex-1 flex justify-center items-center cursor-pointer">
+                  className="flex-1 flex justify-center items-center cursor-pointer h-full">
                   <IoMdRemove />
                 </div>
                 {/* amout */}
