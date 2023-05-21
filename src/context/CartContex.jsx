@@ -49,8 +49,20 @@ const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
+  //  clear cart
+  const clearCart = () => {
+    // ketika di klik hapus semua data yang ada di setCart
+    setCart([]);
+  };
+
+  // increase amout
+  const increaseAmount = () => {
+    console.log("amout increased");
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, clearCart, increaseAmount }}>
       {children}
     </CartContext.Provider>
   );
