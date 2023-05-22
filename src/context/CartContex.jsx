@@ -9,11 +9,22 @@ const CartProvider = ({ children }) => {
   // item amout state
   const [itemAmount, setItemAmount] = useState(0);
 
+  // total price state
+  const [total, setTotal] = useState(0);
+
+  // total price
+  useEffect(() => {
+    const total = cart.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.price * currentItem.amount;
+    }, 0);
+    setTotal(total);
+  }, [cart]);
+
   // update item amount
   useEffect(() => {
     // reduce akan menghitung jumlah total yang ada di cart
     const amount = cart.reduce((accumulator, currentItem) => {
-      //  dan mengembalikan nilai sementara(accumator) ditambah dengan currentItem sesuai yang use inginkan(amount)
+      //  dan mengembalikan nil ai sementara(accumator) ditambah dengan currentItem sesuai yang use inginkan(amount)
       return accumulator + currentItem.amount;
 
       // dengan nilai default 0 di awal
@@ -56,8 +67,6 @@ const CartProvider = ({ children }) => {
     } else {
       setCart([...cart, newItem]);
     }
-
-    console.log(`${product.title} item ${id} added to cart`);
   };
 
   // remove from cart
@@ -112,6 +121,7 @@ const CartProvider = ({ children }) => {
         increaseAmount,
         decreaseAmount,
         itemAmount,
+        total,
       }}>
       {children}
     </CartContext.Provider>

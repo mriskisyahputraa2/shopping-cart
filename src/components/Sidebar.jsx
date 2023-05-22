@@ -9,7 +9,7 @@ import CartItem from "../components/CartItem";
 function Sidebar() {
   const { isOpen, handleClose } = useContext(SidebarContext);
 
-  const { cart, clearCart } = useContext(CartContext);
+  const { cart, clearCart, total } = useContext(CartContext);
 
   return (
     <>
@@ -27,17 +27,18 @@ function Sidebar() {
             <IoMdArrowForward />
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-y-2 overflow-y-auto overflow-x-hidden border-b h-[300px] lg:h-[400px]">
           {cart.map((item) => {
             return <CartItem item={item} key={item.id} />;
           })}
         </div>
-
         <div className="flex flex-col gap-y-3 py-4 mt-4">
           <div className=" w-full flex justify-between items-center">
             {/* total */}
             <div className="uppercase font-semibold">
-              <span className="mr-2">Total: </span>1000
+              {/* mengambil 2 angka di belakang ex: 457.39 (39 adalah 2 angka di belakang) */}
+              <span className="mr-2">Total: </span>${" "}
+              {parseFloat(total).toFixed(2)}
             </div>
             {/* clear cart icon */}
             <div
