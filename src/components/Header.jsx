@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { SidebarContext } from "../context/SidebarContext";
 import { BsBag } from "react-icons/bs";
 import { CartContext } from "../context/CartContex";
+import { Link } from "react-router-dom";
+import Logo from "../img/logo.svg";
 
 function Header() {
   const { isOpen, setIsOpen } = useContext(SidebarContext);
@@ -11,13 +13,22 @@ function Header() {
   return (
     <>
       <header className="bg-pink-200">
-        <div>Header</div>
-        <div
-          className="cursor-pointer flex relative"
-          onClick={() => setIsOpen(!isOpen)}>
-          <BsBag className="text-2xl" />
-          <div className="bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center">
-            {itemAmount}
+        <div className="container mx-auto flex items-center justify-between h-full">
+          {/* Logo */}
+          <Link to={"/"}>
+            <div>
+              <img className="w-[40px]" src={Logo} alt="/" />
+            </div>
+          </Link>
+
+          {/* cart */}
+          <div
+            className="cursor-pointer flex relative max-w-[50px]"
+            onClick={() => setIsOpen(!isOpen)}>
+            <BsBag className="text-2xl" />
+            <div className="bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center">
+              {itemAmount}
+            </div>
           </div>
         </div>
       </header>
