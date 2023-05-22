@@ -57,7 +57,7 @@ function CartItem({ item }) {
               </div>
               {/* item price */}
               <div className="flex flex-1 items-center justify-around">
-                {price}
+                $ {price}
               </div>
               {/* final price */}
               {/* make the price at 2 decimals */}

@@ -12,7 +12,7 @@ function Header() {
   // header state
   const [isActive, setIsActive] = useState(false);
 
-  // event listener
+  // event listener scrolling bar
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
