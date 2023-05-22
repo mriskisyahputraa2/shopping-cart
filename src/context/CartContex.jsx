@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
@@ -8,6 +8,22 @@ const CartProvider = ({ children }) => {
 
   // item amout state
   const [itemAmount, setItemAmount] = useState(0);
+
+  // update item amount
+  useEffect(() => {
+    // reduce akan menghitung jumlah total yang ada di cart
+    const amount = cart.reduce((accumulator, currentItem) => {
+      //  dan mengembalikan nilai sementara(accumator) ditambah dengan currentItem sesuai yang use inginkan(amount)
+      return accumulator + currentItem.amount;
+
+      // dengan nilai default 0 di awal
+    }, 0);
+
+    // dan setItemAmout di berikan amout untuk mengubah nilai itemAmount menjadi amount
+    setItemAmount(amount);
+
+    // hanya di jalankan pada state cart
+  }, [cart]);
 
   // add cart
   const addToCart = (product, id) => {
