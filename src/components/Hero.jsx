@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import WomanImg from "../img/woman_hero.png";
 
 function Hero() {
@@ -17,6 +18,11 @@ function Hero() {
               AUTUMN SALE STYLISH <br />
               <span className="font-semibold">WOMENS</span>
             </h1>
+            <Link
+              to={"/"}
+              className="self-start uppercase font-semibold border-b-2 border-primary hover:border-red-500">
+              Discover More
+            </Link>
           </div>
 
           {/* image */}
